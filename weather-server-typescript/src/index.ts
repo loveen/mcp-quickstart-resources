@@ -89,6 +89,7 @@ server.registerTool(
     },
   },
   async ({ state }) => {
+    console.error(`[local-running-mcp-server] : get-alerts called with state :===> ${state}`);
     const stateCode = state.toUpperCase();
     const alertsUrl = `${NWS_API_BASE}/alerts?area=${stateCode}`;
     const alertsData = await makeNWSRequest<AlertsResponse>(alertsUrl);
